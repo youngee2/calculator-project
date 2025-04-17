@@ -49,7 +49,11 @@ public class App {
             //만약 입력받은 게 exit인 경우 반복 종료.
         } while (!sc.next().equals("exit"));
 
+        //setter
+        calculator.setQueue(2,4);
+        //getter
         System.out.println(calculator.getQueue());
+
 
     }
 }

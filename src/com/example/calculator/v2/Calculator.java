@@ -11,9 +11,8 @@ public class Calculator {
 
     //조건에 저장된 연산 결과들 중 가장 먼저 저장된 데이터를 삭제하는 기능을
     //가진 메서드를 구현하라고 하셔서 queue를 활용.
-    Queue<Integer> queue = new LinkedList<>();
-
-
+    private Queue<Integer> queue = new LinkedList<>();
+    private Queue<Integer> queueTemp = new LinkedList<>();
 
 
     //연산
@@ -55,11 +54,23 @@ public class Calculator {
         return false;
     }
 
+
     public Queue getQueue() {
         return queue;
     }
 
-    public void setQueue(Queue<Integer> queue) {
-        this.queue = queue;
+    int oldidx=0;
+    public void setQueue(int idx,int num) {
+
+        while(!queue.isEmpty()){ //queue가 비어있지 않다면 반복
+        int value=queue.poll(); // 맨 처음 받은 값을 value에 저장
+        if(oldidx==idx){ //바꿀 인덱스가 같으면
+            queueTemp.add(num); //값을 덮어씌운다.
+        }else{
+            queueTemp.add(value); //만약 매개변수로 받은 바꿀 인덱스와 같지 않으면 덮어씌우지않는다.
+        }
+        oldidx++; //하나씩 증가하면서 인덱스를 증가.
+    }
+        queue=queueTemp; //수정된 queueTemp를 queue에 저장.
     }
 }
