@@ -7,7 +7,7 @@ import java.util.Scanner;
 public class Calculator {
 
     //사용자에게 입력받은 번호를 양의 정수인지 검사하는 메서드(양의 정수(0 포함))
-    static boolean valueCheck(int num){
+    static boolean valueCheck(int num) {
         if (num < 0) {
             System.out.println("입력 가능한 값이 아닙니다. 양의 정수(0 포함) 입력해주세요.");
             System.out.println("next 입력하면 처음으로 돌아갑니다.");
@@ -30,7 +30,7 @@ public class Calculator {
         //한 번은 무조건 실행하기 때문에 do-while문 선택
         //번호를 입력받은 후 valueCheck메서드로 범위에 해당하는 값인지 체크. 범위 포함 안되는 경우 continue로 프로그램 처음부터 실행.
         //첫 번째 번호와 두번째 번호 같은 로직으로 진행.
-        do{
+        do {
             try {
                 System.out.print("첫 번째 번호를 입력: ");
                 numA = sc.nextInt();
@@ -43,24 +43,24 @@ public class Calculator {
                 if (valueCheck(numB)) {
                     continue;
                 }
-                
+
                 //사칙연산 기호를 입력받는 로직
                 //chatAt(0)으로 기호만 꺼내면 -1를 입력해도 -만 입력되기 때문에 그냥 넘어가는 현상 발생이 발생했기 때문에
                 //정규표현식으로 필터링. 만약 사칙연산 기호가 아닌 경우 프로그램 처음부터 실행.
                 System.out.print("사칙연산 기호를 입력하세요: ");
                 String str = sc.next();
-                
+
                 //정규표현식으로 필터링 가능
                 // 사칙연산 기호를 받은 str 변수가 +,-,*,/가 아닌 경우 처음 로직으로 돌아감.
                 // 만약 올바른 사칙연산 기호를 입력받았다면 operation 변수에 저장.
-                if(!str.matches("[\\+\\-\\*/]")){
+                if (!str.matches("[\\+\\-\\*/]")) {
                     System.out.println("사칙연산 기호만 작성해주세요.");
                     System.out.println("next 입력하면 처음으로 돌아갑니다.");
                     continue;
-                }else{
-                    operator=str.charAt(0);
+                } else {
+                    operator = str.charAt(0);
                 }
-            }catch(InputMismatchException e){
+            } catch (InputMismatchException e) {
                 System.out.println("숫자를 제외한 값은 입력 불가. 처음으로 돌아갑니다.");
                 continue;
             }
@@ -79,10 +79,11 @@ public class Calculator {
                 case '/':
                     try { //예외가 발생할 수 있는 부분.
                         result = numA / numB;
-                    }catch (ArithmeticException e){ //ArtimeticException 발생 시 아래 메세지 출력하고 처음부터 입력받음.
+                    } catch (ArithmeticException e) { //ArtimeticException 발생 시 아래 메세지 출력하고 처음부터 입력받음.
                         System.out.println("나눗셈 연산에서 분모(두번째 정수)에 0이 입력될 수 없습니다.");
                         continue;
-                    };
+                    }
+                    ;
                     break;
             }
 
@@ -94,6 +95,6 @@ public class Calculator {
             System.out.println("더 계산하시겠습니까? (exit 입력 시 종료 / 계속 진행하시려면 next 입력)");
 
             //만약 입력받은 게 exit인 경우 반복 종료.
-        }while(!sc.next().equals("exit"));
+        } while (!sc.next().equals("exit"));
     }
 }
