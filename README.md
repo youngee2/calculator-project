@@ -1,4 +1,10 @@
 <details>
+  <summary>level 1 클래스 다이어그램</summary>
+![image](https://github.com/user-attachments/assets/28a20a70-7681-4832-85c4-a1bd1c571ddb)
+
+</details>
+
+<details>
 <summary>Level 1 계산기 테스트케이스</summary>
 <table class="tg"><thead>
   <tr>
