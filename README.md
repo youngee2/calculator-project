@@ -1,6 +1,6 @@
 <details>
   <summary>level 1 클래스 다이어그램</summary>
-![image](https://github.com/user-attachments/assets/28a20a70-7681-4832-85c4-a1bd1c571ddb)
+<img src="https://github.com/user-attachments/assets/28a20a70-7681-4832-85c4-a1bd1c571ddb" width="200" height="200">
 
 </details>
 
