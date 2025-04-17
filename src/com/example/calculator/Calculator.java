@@ -1,8 +1,6 @@
 package com.example.calculator;
 
 
-//기본적인 로직만 짜둔 상태
-//유효성
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
@@ -15,7 +13,6 @@ public class Calculator {
             System.out.println("입력 가능한 값이 아닙니다. 양의 정수(0 포함) 입력해주세요.");
             System.out.println("아무거나 입력하면 처음으로 돌아갑니다.");
             return true;
-
         }
         return false;
     }
@@ -49,11 +46,25 @@ public class Calculator {
 
                 System.out.print("사칙연산 기호를 입력하세요: ");
                 //-1를 입력해도 -만 입력되기 때문에 넘어가는 현상 발생.
-                operator = sc.next().charAt(0);
+                String str = sc.next();
+
+                
+                //정규표현식으로 필터링 가능
+                // 사칙연산 기호를 받은 str 변수가 +,-,*,/가 아닌 경우 처음 로직으로 돌아감.
+                // 만약 올바른 사칙연산 기호를 입력받았다면 operation 변수에 저장.
+                if(!str.matches("[\\+\\-\\*/]")){
+                    System.out.println("사칙연산 기호만 작성해주세요.");
+                    System.out.println("아무거나 입력하면 처음으로 돌아갑니다.");
+                    continue;
+                }else{
+                    operator=str.charAt(0);
+                }
             }catch(InputMismatchException e){
                 System.out.println("숫자를 제외한 값은 입력 불가. 처음으로 돌아갑니다.");
                 continue;
             }
+
+
             //switch문으로 해당 사칙연산 기호에 맞는 계산을 한 후, result변수에 저장하고 switch문을 빠져나감.
             switch (operator) {
                 case '+':
@@ -75,7 +86,8 @@ public class Calculator {
                     break;
 
                 default: //사칙연산 기호가 아닐 경우 출력.
-                    System.out.println("사칙연산 기호가 옳지 않습니다. +, -, *, / 중 하나로 입력해주세요. 처음부터 진행하시려면 next 입력");
+                    System.out.println("사칙연산 기호가 옳지 않습니다. +, -, *, / 중 하나로 입력해주세요.");
+                    System.out.println("아무거나 입력하면 처음으로 돌아갑니다.");
                     continue;
             }
 
@@ -89,9 +101,8 @@ public class Calculator {
             // 유효성 검사를 하기 위해 exit-종료/next-진행으로 일단 하기로 결정.
             // 예시에는 "더 계산하시겠습니까? (exit 입력 시 종료)라고 출력하라고 되어있는데, 사용자가 헷갈릴 것 같아서 계속 진행하려면 next 입력도 추가할 생각으로
             // println문도 조금 수정해도 되냐고 여쭤봤더니 가능하다고 하셨다.
-
             System.out.println("더 계산하시겠습니까? (exit 입력 시 종료 / 계속 진행하시려면 next 입력)");
-            //유효성 검사 할지는 좀 더 고민해보기.
+
             //일단 exit 입력 시 종료/아무거나 입력시 계산 계속 진행 구현 O
         }while(!sc.next().equals("exit"));
     }
