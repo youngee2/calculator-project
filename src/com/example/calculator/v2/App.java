@@ -53,7 +53,5 @@ public class App {
         calculator.setQueue(2,4);
         //getter
         System.out.println(calculator.getQueue());
-
-
     }
 }

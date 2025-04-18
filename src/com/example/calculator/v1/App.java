@@ -67,24 +67,17 @@ public class App {
 
             //switch문으로 해당 사칙연산 기호에 맞는 계산을 한 후, result변수에 저장하고 switch문을 빠져나감.
             switch (operator) {
-                case '+':
-                    result = numA + numB;
-                    break;
-                case '-':
-                    result = numA - numB;
-                    break;
-                case '*':
-                    result = numA * numB;
-                    break;
-                case '/':
+                case '+' -> result = numA + numB;
+                case '-' -> result = numA - numB;
+                case '*' -> result = numA * numB;
+                case '/' -> {
                     try { //예외가 발생할 수 있는 부분.
                         result = numA / numB;
                     } catch (ArithmeticException e) { //ArtimeticException 발생 시 아래 메세지 출력하고 처음부터 입력받음.
                         System.out.println("나눗셈 연산에서 분모(두번째 정수)에 0이 입력될 수 없습니다.");
                         continue;
                     }
-                    ;
-                    break;
+                }
             }
 
             //계산된 값을 출력.

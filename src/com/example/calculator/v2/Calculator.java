@@ -18,26 +18,21 @@ public class Calculator {
     //연산
     public int calculate(int numA, int numB, char operator) {
         switch (operator) {
-            case '+':
-                result = numA + numB;
-                break;
-            case '-':
-                result = numA - numB;
-                break;
-            case '*':
-                result = numA * numB;
-                break;
-            case '/':
+            case '+' -> result = numA + numB;
+            case '-' -> result = numA - numB;
+            case '*' -> result = numA * numB;
+            case '/' -> {
                 try { //예외가 발생할 수 있는 부분.
                     result = numA / numB;
                 } catch (ArithmeticException e) { //ArtimeticException 발생 시 아래 메세지 출력하고 처음부터 입력받음.
                     System.out.println("나눗셈 연산에서 분모(두번째 정수)에 0이 입력될 수 없습니다.");
                 }
-                break;
+            }
         }
         queue.add(result);
         return result;
     }
+
 
     //가장 먼저 저장된 데이터 삭제하는 메서드
     public void removeResult() {
@@ -61,7 +56,6 @@ public class Calculator {
 
     int oldidx=0;
     public void setQueue(int idx,int num) {
-
         while(!queue.isEmpty()){ //queue가 비어있지 않다면 반복
         int value=queue.poll(); // 맨 처음 받은 값을 value에 저장
         if(oldidx==idx){ //바꿀 인덱스가 같으면
