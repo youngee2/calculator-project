@@ -13,7 +13,7 @@ public class Calculator {
     //조건에 저장된 연산 결과들 중 가장 먼저 저장된 데이터를 삭제하는 기능을
     //가진 메서드를 구현하라고 하셔서 queue를 활용.
     private Queue<Integer> queue = new LinkedList<>();
-    private Queue<Integer> queueTemp = new LinkedList<>();
+
 
 
     public boolean valueCheck(int num){
@@ -57,6 +57,7 @@ public class Calculator {
 
     public void setQueue(int idx,int num) {
         int oldidx=0;
+        Queue<Integer> queueTemp = new LinkedList<>();
         while((!queue.isEmpty())) { //queue가 비어있지 않고
             if (idx <= queue.size()) {//setter로 받은 idx값이  현재 queue 사이즈보다 작거나 같다면
                 int value = queue.poll(); // 맨 처음 받은 값을 value에 저장
