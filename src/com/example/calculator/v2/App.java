@@ -32,8 +32,8 @@ public class App {
                 String str = sc.next();
 
                 if (!str.matches("[\\+\\-\\*/]")) {
-                    System.out.println("사칙연산 기호만 작성해주세요.");
-                    System.out.println("next 입력하면 처음으로 돌아갑니다.");
+                    String temp = "사칙연산 기호만 작성해주세요. next 입력하면 처음으로 돌아갑니다.";
+                    System.out.println(temp);
                     continue;
                 } else {
                     calculator.setOperator(str.charAt(0));
@@ -43,14 +43,13 @@ public class App {
                 continue;
             }
 
-            boolean resultCheck=calculator.calculate(calculator.getNumA(), calculator.getNumB(), calculator.getOperator());
+            int result = calculator.calculate(calculator.getNumA(), calculator.getNumB(), calculator.getOperator());
 
-            if(resultCheck) {
-                System.out.println("결과: " + calculator.getResult());
-                System.out.println("더 계산하시겠습니까? (exit 입력 시 종료 / 계속 진행하시려면 next 입력)");
-            }
+            System.out.println("계산 값: "+result);
+            System.out.println("더 계산하시겠습니까? (exit 입력 시 종료 / 계속 진행하시려면 next 입력");
 
             //만약 입력받은 게 exit인 경우 반복 종료.
         } while (!sc.next().equals("exit"));
+
     }
 }
