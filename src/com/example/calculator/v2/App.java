@@ -44,6 +44,7 @@ public class App {
                 continue;
             }
 
+            //calculate 메서드 매개변수 입력 후 result 변수로 결과값 반환받음.
             int result = calculator.calculate(calculator.getNumA(), calculator.getNumB(), calculator.getOperator());
 
             System.out.println("계산 값: "+result);

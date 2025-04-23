@@ -53,39 +53,37 @@ public class Calculator {
 
     //setter
     //수정하려는 인덱스보다 저장된 값의 수가 적으면 인덱스 수정X
-    //만약 수정하려는 인덱스보다 저장된 값의 수가 크면 기존 인덱스 값 삭제하고 가져온 인덱스에 수정할 값으로 추가.
+    //만약 수정하려는 인덱스보다 저장된 값의 수가 크면 가져온 인덱스에 수정할 값으로 추가.
     public void setList(int index, int num) {
         if(list.size()-1<index){
             System.out.println("해당 인덱스는 값이 비어 있어서 수정하실 수 없습니다.");
         }else{
-            list.remove(index);
-            list.add(index, num);
+            list.set(index,num);
             System.out.println(index+"번째 인덱스 값이 "+num+"으로 수정되었습니다.");
         }
     }
 
-    public int getNumA() {
-        return numA;
-    }
-
     public void setNumA(int numA) {
         this.numA = numA;
-
-    }
-
-    public int getNumB() {
-        return numB;
     }
 
     public void setNumB(int numB) {
         this.numB = numB;
     }
 
-    public char getOperator() {
-        return operator;
-    }
-
     public void setOperator(char operator) {
         this.operator = operator;
+    }
+
+    public int getNumA() {
+        return numA;
+    }
+
+    public int getNumB() {
+        return numB;
+    }
+
+    public char getOperator() {
+        return operator;
     }
 }
