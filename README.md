@@ -201,6 +201,8 @@
 
 <details>
   <summary>level 2 클래스 다이어그램</summary>
+ <img src="https://github.com/user-attachments/assets/ce1ada78-46f5-4838-ae45-322949ebd1f0">
+
 </details>
 
 <details>
