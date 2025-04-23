@@ -31,6 +31,7 @@ public class App {
                 System.out.print("사칙연산 기호를 입력하세요: ");
                 String str = sc.next();
 
+                //사칙연산 기호만 받을 수 있게 필터링.
                 if (!str.matches("[\\+\\-\\*/]")) {
                     String temp = "사칙연산 기호만 작성해주세요. next 입력하면 처음으로 돌아갑니다.";
                     System.out.println(temp);

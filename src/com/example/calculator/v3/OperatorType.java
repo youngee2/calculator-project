@@ -3,6 +3,7 @@ package com.example.calculator.v3;
 //사칙연산 타입 관리
 public enum OperatorType {
 
+    //enum('값')
     PLUS('+') ,
     MINUS('-'),
     MULTIPLY('*'),
